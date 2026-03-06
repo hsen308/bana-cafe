@@ -1316,4 +1316,19 @@ document.querySelectorAll('.rv,.rv-l,.rv-r').forEach(el => ro.observe(el));
 
 // Menu tabs
 function swTab(btn, id) {
-  document.querySelectorAll('.tab').forEach(t => t.classList.remove('
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('on'));
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('on'));
+  btn.classList.add('on');
+  document.getElementById(id).classList.add('on');
+}
+
+function submitForm(btn) {
+  const prevText = btn.innerText;
+  btn.innerText = 'Sent!';
+  setTimeout(() => {
+    btn.innerText = prevText;
+  }, 3000);
+}
+</script>
+</body>
+</html>
