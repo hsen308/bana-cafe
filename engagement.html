@@ -41,6 +41,7 @@ body::before{
     linear-gradient(160deg,#fdf6ee 0%,#f7ead8 50%,#fdf6ee 100%);
   animation:bgPulse 8s ease-in-out infinite alternate;
   z-index:0;
+  pointer-events:none;
 }
 @keyframes bgPulse{
   0%{opacity:1}
@@ -70,6 +71,8 @@ body::before{
   animation:float 3.2s ease-in-out infinite;
   filter:drop-shadow(0 18px 48px rgba(100,70,30,.22));
   transition:filter .3s;
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;
 }
 .env-outer:hover{filter:drop-shadow(0 24px 56px rgba(100,70,30,.32))}
 @keyframes float{
@@ -549,6 +552,7 @@ function burst(cx,cy,n=28){
 
 /* ── Open ── */
 let done=false;
+document.getElementById('env').addEventListener('touchstart',function(e){e.preventDefault();open_env();},{passive:false});
 function open_env(){
   if(done)return;
   done=true;
